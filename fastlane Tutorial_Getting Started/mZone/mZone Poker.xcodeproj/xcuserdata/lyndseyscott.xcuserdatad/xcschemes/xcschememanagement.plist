@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>mZone Poker.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>04A7DBDA1DCE9AF1000A395F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>04CE0CB921C5ACFE00933DDE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>04DAB70621D55478003854E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>04F92BB41DDC194100C15949</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC9527411B8043450098D609</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
