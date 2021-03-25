@@ -12,6 +12,20 @@
 		18D775C522AD944300AE281E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D775C422AD944300AE281E /* ContentView.swift */; };
 		18D775CA22AD944400AE281E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C922AD944400AE281E /* Preview Assets.xcassets */; };
 		18D775D822AD963800AE281E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D775DA22AD963800AE281E /* LaunchScreen.storyboard */; };
+		88EEE40F260CB261007914BD /* SwiftyLemonadeClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EEE40E260CB261007914BD /* SwiftyLemonadeClipApp.swift */; };
+		88EEE411260CB261007914BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EEE410260CB261007914BD /* ContentView.swift */; };
+		88EEE413260CB261007914BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88EEE412260CB261007914BD /* Assets.xcassets */; };
+		88EEE416260CB261007914BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88EEE415260CB261007914BD /* Preview Assets.xcassets */; };
+		88EEE41B260CB261007914BD /* SwiftyLemonadeClip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 88EEE40C260CB261007914BD /* SwiftyLemonadeClip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		88EEE421260CB280007914BD /* LemonadeStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D384324F43437007A056F /* LemonadeStand.swift */; };
+		88EEE425260CB289007914BD /* LemonadeStandLocations in Frameworks */ = {isa = PBXBuildFile; productRef = 88EEE424260CB289007914BD /* LemonadeStandLocations */; };
+		88EEE426260CB28B007914BD /* Lemonade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D384B24F582B8007A056F /* Lemonade.swift */; };
+		88EEE429260CB295007914BD /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D384D24F589D1007A056F /* MenuList.swift */; };
+		88EEE42C260CB299007914BD /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D384524F4371C007A056F /* DetailView.swift */; };
+		88EEE42F260CB29D007914BD /* OrderPlacedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A857224FA78CB00D2D988 /* OrderPlacedView.swift */; };
+		88EEE432260CB2A1007914BD /* StandList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A856324F95AAF00D2D988 /* StandList.swift */; };
+		88EEE435260CB2A9007914BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF5A857924FA917900D2D988 /* Assets.xcassets */; };
+		88EEE439260CB2C4007914BD /* SwiftyLemonadeClipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EEE438260CB2C4007914BD /* SwiftyLemonadeClipModel.swift */; };
 		BF5A856424F95AAF00D2D988 /* StandList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A856324F95AAF00D2D988 /* StandList.swift */; };
 		BF5A857324FA78CB00D2D988 /* OrderPlacedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A857224FA78CB00D2D988 /* OrderPlacedView.swift */; };
 		BF5A857A24FA917900D2D988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF5A857924FA917900D2D988 /* Assets.xcassets */; };
@@ -24,6 +38,16 @@
 		BFC4281824FAA7A100F573FD /* LemonadeStandLocations in Frameworks */ = {isa = PBXBuildFile; productRef = BFC4281724FAA7A100F573FD /* LemonadeStandLocations */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		88EEE419260CB261007914BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18D775B522AD944300AE281E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88EEE40B260CB261007914BD;
+			remoteInfo = SwiftyLemonadeClip;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		BF5A855224F956BA00D2D988 /* Embed App Clips */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -31,6 +55,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
 			dstSubfolderSpec = 16;
 			files = (
+				88EEE41B260CB261007914BD /* SwiftyLemonadeClip.app in Embed App Clips */,
 			);
 			name = "Embed App Clips";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,6 +70,14 @@
 		18D775C922AD944400AE281E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		18D775CE22AD944400AE281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D775DE22AD96B400AE281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		88EEE40C260CB261007914BD /* SwiftyLemonadeClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyLemonadeClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88EEE40E260CB261007914BD /* SwiftyLemonadeClipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyLemonadeClipApp.swift; sourceTree = "<group>"; };
+		88EEE410260CB261007914BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		88EEE412260CB261007914BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		88EEE415260CB261007914BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		88EEE417260CB261007914BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88EEE418260CB261007914BD /* SwiftyLemonadeClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftyLemonadeClip.entitlements; sourceTree = "<group>"; };
+		88EEE438260CB2C4007914BD /* SwiftyLemonadeClipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyLemonadeClipModel.swift; sourceTree = "<group>"; };
 		BF5A856324F95AAF00D2D988 /* StandList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandList.swift; sourceTree = "<group>"; };
 		BF5A857224FA78CB00D2D988 /* OrderPlacedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPlacedView.swift; sourceTree = "<group>"; };
 		BF5A857924FA917900D2D988 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,6 +98,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		88EEE409260CB261007914BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88EEE425260CB289007914BD /* LemonadeStandLocations in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -73,6 +114,7 @@
 			children = (
 				BFC4281524FAA76800F573FD /* LemonadeStandLocations */,
 				18D775BF22AD944300AE281E /* SwiftyLemonade */,
+				88EEE40D260CB261007914BD /* SwiftyLemonadeClip */,
 				18D775BE22AD944300AE281E /* Products */,
 				BF5A856B24FA715F00D2D988 /* Frameworks */,
 			);
@@ -84,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				18D775BD22AD944300AE281E /* SwiftyLemonade.app */,
+				88EEE40C260CB261007914BD /* SwiftyLemonadeClip.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +150,28 @@
 			isa = PBXGroup;
 			children = (
 				18D775C922AD944400AE281E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		88EEE40D260CB261007914BD /* SwiftyLemonadeClip */ = {
+			isa = PBXGroup;
+			children = (
+				88EEE40E260CB261007914BD /* SwiftyLemonadeClipApp.swift */,
+				88EEE410260CB261007914BD /* ContentView.swift */,
+				88EEE412260CB261007914BD /* Assets.xcassets */,
+				88EEE417260CB261007914BD /* Info.plist */,
+				88EEE418260CB261007914BD /* SwiftyLemonadeClip.entitlements */,
+				88EEE414260CB261007914BD /* Preview Content */,
+				88EEE438260CB2C4007914BD /* SwiftyLemonadeClipModel.swift */,
+			);
+			path = SwiftyLemonadeClip;
+			sourceTree = "<group>";
+		};
+		88EEE414260CB261007914BD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				88EEE415260CB261007914BD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -156,6 +221,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				88EEE41A260CB261007914BD /* PBXTargetDependency */,
 			);
 			name = SwiftyLemonade;
 			packageProductDependencies = (
@@ -165,18 +231,41 @@
 			productReference = 18D775BD22AD944300AE281E /* SwiftyLemonade.app */;
 			productType = "com.apple.product-type.application";
 		};
+		88EEE40B260CB261007914BD /* SwiftyLemonadeClip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88EEE41C260CB261007914BD /* Build configuration list for PBXNativeTarget "SwiftyLemonadeClip" */;
+			buildPhases = (
+				88EEE408260CB261007914BD /* Sources */,
+				88EEE409260CB261007914BD /* Frameworks */,
+				88EEE40A260CB261007914BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyLemonadeClip;
+			packageProductDependencies = (
+				88EEE424260CB289007914BD /* LemonadeStandLocations */,
+			);
+			productName = SwiftyLemonadeClip;
+			productReference = 88EEE40C260CB261007914BD /* SwiftyLemonadeClip.app */;
+			productType = "com.apple.product-type.application.on-demand-install-capable";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		18D775B522AD944300AE281E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Ray Wenderlich";
 				TargetAttributes = {
 					18D775BC22AD944300AE281E = {
 						CreatedOnToolsVersion = 11.0;
+					};
+					88EEE40B260CB261007914BD = {
+						CreatedOnToolsVersion = 12.2;
 					};
 				};
 			};
@@ -194,6 +283,7 @@
 			projectRoot = "";
 			targets = (
 				18D775BC22AD944300AE281E /* SwiftyLemonade */,
+				88EEE40B260CB261007914BD /* SwiftyLemonadeClip */,
 			);
 		};
 /* End PBXProject section */
@@ -207,6 +297,16 @@
 				18D775CA22AD944400AE281E /* Preview Assets.xcassets in Resources */,
 				BF5A857A24FA917900D2D988 /* Assets.xcassets in Resources */,
 				BFC4281624FAA76800F573FD /* LemonadeStandLocations in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88EEE40A260CB261007914BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88EEE416260CB261007914BD /* Preview Assets.xcassets in Resources */,
+				88EEE435260CB2A9007914BD /* Assets.xcassets in Resources */,
+				88EEE413260CB261007914BD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +351,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		88EEE408260CB261007914BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88EEE432260CB2A1007914BD /* StandList.swift in Sources */,
+				88EEE411260CB261007914BD /* ContentView.swift in Sources */,
+				88EEE42C260CB299007914BD /* DetailView.swift in Sources */,
+				88EEE42F260CB29D007914BD /* OrderPlacedView.swift in Sources */,
+				88EEE40F260CB261007914BD /* SwiftyLemonadeClipApp.swift in Sources */,
+				88EEE439260CB2C4007914BD /* SwiftyLemonadeClipModel.swift in Sources */,
+				88EEE426260CB28B007914BD /* Lemonade.swift in Sources */,
+				88EEE429260CB295007914BD /* MenuList.swift in Sources */,
+				88EEE421260CB280007914BD /* LemonadeStand.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		88EEE41A260CB261007914BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88EEE40B260CB261007914BD /* SwiftyLemonadeClip */;
+			targetProxy = 88EEE419260CB261007914BD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		18D775DA22AD963800AE281E /* LaunchScreen.storyboard */ = {
@@ -423,6 +547,52 @@
 			};
 			name = Release;
 		};
+		88EEE41D260CB261007914BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwiftyLemonadeClip/SwiftyLemonadeClip.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftyLemonadeClip/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SwiftyLemonadeClip/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.SwiftyLemonade.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		88EEE41E260CB261007914BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwiftyLemonadeClip/SwiftyLemonadeClip.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftyLemonadeClip/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SwiftyLemonadeClip/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.SwiftyLemonade.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -444,9 +614,22 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		88EEE41C260CB261007914BD /* Build configuration list for PBXNativeTarget "SwiftyLemonadeClip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88EEE41D260CB261007914BD /* Debug */,
+				88EEE41E260CB261007914BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		88EEE424260CB289007914BD /* LemonadeStandLocations */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LemonadeStandLocations;
+		};
 		BFC4281724FAA7A100F573FD /* LemonadeStandLocations */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LemonadeStandLocations;
