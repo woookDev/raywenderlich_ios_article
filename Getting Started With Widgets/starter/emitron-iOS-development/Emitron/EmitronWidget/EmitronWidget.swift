@@ -29,6 +29,14 @@
 import WidgetKit
 import SwiftUI
 
+extension FileManager {
+  static func sharedContainerURL() -> URL {
+    return FileManager.default.containerURL(
+      forSecurityApplicationGroupIdentifier: "group.com.jaewook.emitron.contents"
+    )!
+  }
+}
+
 let snapshotEntry = WidgetContent(
   name: "iOS Concurrency with GCD and Operations",
   cardViewSubtitle: "iOS & Swift",
@@ -40,58 +48,58 @@ let snapshotEntry = WidgetContent(
   releasedAtDateTimeString: "Jun 23 2020 • Video Course (3 hrs, 21 mins)")
 
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> WidgetContent {
-        snapshotEntry
+
+  func placeholder(in context: Context) -> WidgetContent {
+    snapshotEntry
+  }
+  
+  func getSnapshot(in context: Context, completion: @escaping (WidgetContent) -> ()) {
+    let entry = snapshotEntry
+    completion(entry)
+  }
+  
+  func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    var entries = readContents()
+    
+    // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+    let currentDate = Date()
+    for hourOffset in 0 ..< 5 {
+      let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+      let entry = snapshotEntry
+      entries.append(entry)
     }
-
-    func getSnapshot(in context: Context, completion: @escaping (WidgetContent) -> ()) {
-        let entry = snapshotEntry
-        completion(entry)
-    }
-
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        /*var entries: [WidgetContent] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = snapshotEntry
-            entries.append(entry)
-        }*/
-
-      let entries = [snapshotEntry]
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
-    }
+    
+    let timeline = Timeline(entries: entries, policy: .atEnd)
+    completion(timeline)
+  }
 }
 
 /*struct EmitronWidgetEntryView : View {
-    var entry: Provider.Entry
-
-    var body: some View {
-        Text(entry.date, style: .time)
-    }
-}*/
+ var entry: Provider.Entry
+ 
+ var body: some View {
+ Text(entry.date, style: .time)
+ }
+ }*/
 
 @main
 struct EmitronWidget: Widget {
-    let kind: String = "EmitronWidget"
-
-    var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            EntryView(model: entry)
-        }
-        .configurationDisplayName("RW Tutorials")
-        .description("See the latest video tutorials")
-        .supportedFamilies([.systemMedium])
+  let kind: String = "EmitronWidget"
+  
+  var body: some WidgetConfiguration {
+    StaticConfiguration(kind: kind, provider: Provider()) { entry in
+      EntryView(model: entry)
     }
+    .configurationDisplayName("RW Tutorials")
+    .description("See the latest video tutorials")
+    .supportedFamilies([.systemMedium])
+  }
 }
 
 /*struct EmitronWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        EmitronWidgetEntryView(entry: snapshotEntry)
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-    }
-}
-*/
+ static var previews: some View {
+ EmitronWidgetEntryView(entry: snapshotEntry)
+ .previewContext(WidgetPreviewContext(family: .systemSmall))
+ }
+ }
+ */
