@@ -28,6 +28,8 @@
 
 import WidgetKit
 import SwiftUI
+import IntentsUI
+import Intents
 
 extension FileManager {
   static func sharedContainerURL() -> URL {
@@ -47,26 +49,50 @@ let snapshotEntry = WidgetContent(
     """,
   releasedAtDateTimeString: "Jun 23 2020 • Video Course (3 hrs, 21 mins)")
 
-struct Provider: TimelineProvider {
-
+struct Provider: IntentTimelineProvider {
+  
+  func readContents() -> [WidgetContent] {
+    var contents: [WidgetContent] = []
+    let archiveURL = FileManager.sharedContainerURL().appendingPathComponent("contents.json")
+    
+    print(">>> \(archiveURL)")
+    
+    let decoder = JSONDecoder()
+    if let codeData = try? Data(contentsOf: archiveURL) {
+      do {
+        contents = try decoder.decode([WidgetContent].self, from: codeData)
+      } catch {
+        print("Error: Can't decode contents")
+      }
+    }
+    return contents
+  }
+  
   func placeholder(in context: Context) -> WidgetContent {
     snapshotEntry
   }
   
-  func getSnapshot(in context: Context, completion: @escaping (WidgetContent) -> ()) {
+  public func getSnapshot(
+    for configuration: TimelineIntervalIntent,
+    in context: Context,
+    completion: @escaping (WidgetContent) -> Void
+  ) {
     let entry = snapshotEntry
     completion(entry)
   }
   
-  func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+  public func getTimeline(
+    for configuration: TimelineIntervalIntent,
+    in context: Context,
+    completion: @escaping (Timeline<WidgetContent>) -> Void
+  ) {
     var entries = readContents()
     
     // Generate a timeline consisting of five entries an hour apart, starting from the current date.
     let currentDate = Date()
-    for hourOffset in 0 ..< 5 {
-      let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-      let entry = snapshotEntry
-      entries.append(entry)
+    let interval = configuration.interval as! Int
+    for index in 0..<entries.count {
+      entries[index].date = Calendar.current.date(byAdding: .second, value: index * interval, to: currentDate)!
     }
     
     let timeline = Timeline(entries: entries, policy: .atEnd)
@@ -87,7 +113,11 @@ struct EmitronWidget: Widget {
   let kind: String = "EmitronWidget"
   
   var body: some WidgetConfiguration {
-    StaticConfiguration(kind: kind, provider: Provider()) { entry in
+    IntentConfiguration(
+      kind: kind,
+      intent: TimelineIntervalIntent.self,
+      provider: Provider()
+    ) { entry in
       EntryView(model: entry)
     }
     .configurationDisplayName("RW Tutorials")

@@ -158,6 +158,10 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>TimelineIntervalIntent</string>
+	</array>
 	<key>SSO_SECRET</key>
 	<string>$(SSO_SECRET)</string>
 	<key>UIAppFonts</key>
