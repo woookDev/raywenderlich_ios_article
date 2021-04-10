@@ -59,6 +59,21 @@
       "productID" : "com.raywenderlich.GreenBar.recipes.tartcherrysalad",
       "referenceName" : "TartCherrySalad",
       "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "D2354960",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.temporary.id",
+      "referenceName" : null,
+      "type" : "Consumable"
     }
   ],
   "settings" : {
