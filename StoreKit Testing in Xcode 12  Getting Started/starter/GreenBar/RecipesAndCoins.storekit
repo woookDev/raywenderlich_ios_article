@@ -1,0 +1,74 @@
+{
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "2F05CABF",
+      "localizations" : [
+        {
+          "description" : "The Classic Caesar Salad",
+          "displayName" : "Caesar Salad",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.raywenderlich.GreenBar.recipes.caesar",
+      "referenceName" : "CaesarSalad",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "2B4DE47E",
+      "localizations" : [
+        {
+          "description" : "Light and Easy!",
+          "displayName" : "Easy Pasta Salad",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.raywenderlich.GreenBar.recipes.easypasta",
+      "referenceName" : "Easy Pasta Salad",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "E7020D06",
+      "localizations" : [
+        {
+          "description" : "A Healthy and Delicious Taco in a Bowl",
+          "displayName" : "Healthy Taco Salad",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.raywenderlich.GreenBar.recipes.healthytaco",
+      "referenceName" : "Healthy Taco Salad",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "0150F90F",
+      "localizations" : [
+        {
+          "description" : "Sweet, Refreshing and Finely Chopped!",
+          "displayName" : "Tart Cherry Salad",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.raywenderlich.GreenBar.recipes.tartcherrysalad",
+      "referenceName" : "TartCherrySalad",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 0
+  }
+}
