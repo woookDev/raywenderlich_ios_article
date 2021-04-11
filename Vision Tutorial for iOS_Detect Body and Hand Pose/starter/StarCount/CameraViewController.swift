@@ -30,12 +30,108 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
+import AVFoundation
 import UIKit
+import Vision
+
+extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+  func captureOutput(_ output: AVCaptureOutput,
+                     didOutput sampleBuffer: CMSampleBuffer,
+                     from connection: AVCaptureConnection
+  ) {
+    
+  }
+}
 
 final class CameraViewController: UIViewController {
+  
+  private var cameraFeedSession: AVCaptureSession?
+  
+  private let handPoseRequest: VNDetectHumanHandPoseRequest = {
+    // 1
+    let request = VNDetectHumanHandPoseRequest()
+    
+    // 2
+    request.maximumHandCount = 2
+    return request
+  }()
+  
+  private let videoDataOutputQueue = DispatchQueue(
+    label: "CameraFeedOutput",
+    qos: .userInteractive
+  )
+  
   // 1
   override func loadView() {
     view = CameraPreview()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    do {
+      // 1
+      if cameraFeedSession == nil {
+        // 2
+        try setupAVSession()
+        // 3
+        cameraView.previewLayer.session = cameraFeedSession
+        cameraView.previewLayer.videoGravity = .resizeAspectFill
+      }
+      
+      cameraFeedSession?.startRunning()
+    } catch {
+      print(error.localizedDescription)
+    }
+  }
+  
+  // 5
+  override func viewWillDisappear(_ animated: Bool) {
+    cameraFeedSession?.stopRunning()
+    super.viewWillDisappear(animated)
+  }
+  
+  func setupAVSession() throws {
+    // 1
+    guard let videoDevice = AVCaptureDevice.default(
+            .builtInWideAngleCamera,
+            for: .video,
+            position: .front
+    ) else {
+      throw AppError.captureSessionSetup(reason: "Could not find a front facing camera")
+    }
+    
+    // 2
+    guard let deviceInput = try? AVCaptureDeviceInput(device: videoDevice) else {
+      throw AppError.captureSessionSetup(reason: "Could not create video device input")
+    }
+    
+    // 3
+    let session = AVCaptureSession()
+    session.beginConfiguration()
+    session.sessionPreset = AVCaptureSession.Preset.high
+    
+    // 4
+    guard session.canAddInput(deviceInput) else {
+      throw AppError.captureSessionSetup(
+        reason: "Could not add video device input to the session"
+      )
+    }
+    session.addInput(deviceInput)
+    
+    // 5
+    let dataOutput = AVCaptureVideoDataOutput()
+    if session.canAddOutput(dataOutput) {
+      session.addOutput(dataOutput)
+      dataOutput.alwaysDiscardsLateVideoFrames = true
+      dataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
+    } else {
+      throw AppError.captureSessionSetup(reason: "Could not add video data output to the session")
+    }
+    
+    // 6
+    session.commitConfiguration()
+    cameraFeedSession = session
   }
   
   // 2
