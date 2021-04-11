@@ -17,6 +17,9 @@
 		303C3F292584A63500CA22F3 /* StarAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C3F282584A63500CA22F3 /* StarAnimator.swift */; };
 		304BEFCC258628F800CED98D /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304BEFCB258628F800CED98D /* AppError.swift */; };
 		308D74B125878AC400A39EB8 /* GameLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D74B025878AC400A39EB8 /* GameLogicController.swift */; };
+		88EAA8392622CCC20037C39A /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EAA8382622CCC20037C39A /* CameraPreview.swift */; };
+		88EAA83C2622CD750037C39A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EAA83B2622CD750037C39A /* CameraViewController.swift */; };
+		88EAA83F2622D3DB0037C39A /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EAA83E2622D3DB0037C39A /* CameraView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		303C3F282584A63500CA22F3 /* StarAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarAnimator.swift; sourceTree = "<group>"; };
 		304BEFCB258628F800CED98D /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		308D74B025878AC400A39EB8 /* GameLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogicController.swift; sourceTree = "<group>"; };
+		88EAA8382622CCC20037C39A /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		88EAA83B2622CD750037C39A /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		88EAA83E2622D3DB0037C39A /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,9 @@
 				308D74B025878AC400A39EB8 /* GameLogicController.swift */,
 				308D74B42587B10800A39EB8 /* Supporting Files */,
 				18D775C822AD944400AE281E /* Preview Content */,
+				88EAA8382622CCC20037C39A /* CameraPreview.swift */,
+				88EAA83B2622CD750037C39A /* CameraViewController.swift */,
+				88EAA83E2622D3DB0037C39A /* CameraView.swift */,
 			);
 			path = StarCount;
 			sourceTree = "<group>";
@@ -199,12 +208,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				18D775C522AD944300AE281E /* ContentView.swift in Sources */,
+				88EAA8392622CCC20037C39A /* CameraPreview.swift in Sources */,
 				1839F4B025190F2A00BB00F1 /* AppMain.swift in Sources */,
+				88EAA83F2622D3DB0037C39A /* CameraView.swift in Sources */,
 				304BEFCC258628F800CED98D /* AppError.swift in Sources */,
 				301202F0258528A7007B2E1B /* StarAnimatorView.swift in Sources */,
 				308D74B125878AC400A39EB8 /* GameLogicController.swift in Sources */,
 				303C3F292584A63500CA22F3 /* StarAnimator.swift in Sources */,
 				185A48EC25DC2DF1008592C9 /* FingersOverlay.swift in Sources */,
+				88EAA83C2622CD750037C39A /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
