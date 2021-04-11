@@ -17,7 +17,6 @@
 		303C3F292584A63500CA22F3 /* StarAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303C3F282584A63500CA22F3 /* StarAnimator.swift */; };
 		304BEFCC258628F800CED98D /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304BEFCB258628F800CED98D /* AppError.swift */; };
 		308D74B125878AC400A39EB8 /* GameLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D74B025878AC400A39EB8 /* GameLogicController.swift */; };
-		88FECB302608F4440028F85E /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FECB2F2608F4440028F85E /* CameraPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		303C3F282584A63500CA22F3 /* StarAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarAnimator.swift; sourceTree = "<group>"; };
 		304BEFCB258628F800CED98D /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		308D74B025878AC400A39EB8 /* GameLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogicController.swift; sourceTree = "<group>"; };
-		88FECB2F2608F4440028F85E /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +72,6 @@
 				308D74B025878AC400A39EB8 /* GameLogicController.swift */,
 				308D74B42587B10800A39EB8 /* Supporting Files */,
 				18D775C822AD944400AE281E /* Preview Content */,
-				88FECB2F2608F4440028F85E /* CameraPreview.swift */,
 			);
 			path = StarCount;
 			sourceTree = "<group>";
@@ -202,7 +199,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				18D775C522AD944300AE281E /* ContentView.swift in Sources */,
-				88FECB302608F4440028F85E /* CameraPreview.swift in Sources */,
 				1839F4B025190F2A00BB00F1 /* AppMain.swift in Sources */,
 				304BEFCC258628F800CED98D /* AppError.swift in Sources */,
 				301202F0258528A7007B2E1B /* StarAnimatorView.swift in Sources */,
@@ -348,7 +344,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "StarCount/Preview\\ Content";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 67SBNF2QS6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "StarCount/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -368,7 +364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "StarCount/Preview\\ Content";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 67SBNF2QS6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "StarCount/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
