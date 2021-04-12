@@ -44,6 +44,10 @@ struct ContentView: View {
         MenuList(stand: selectedStand)
       }
     }
+    
+    if model.locationFound == false {
+      Text("Error finding stand")
+    }
   }
 }
 

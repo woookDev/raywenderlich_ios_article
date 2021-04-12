@@ -78,6 +78,8 @@ struct SwiftyLemonadeClipApp: App {
       
       // 3
       print("Welcome to \(stand.title)! :]")
+    } else {
+      model.locationFound = false
     }
   }
 }
