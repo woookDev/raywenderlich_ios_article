@@ -39,7 +39,8 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                      didOutput sampleBuffer: CMSampleBuffer,
                      from connection: AVCaptureConnection
   ) {
-    
+    // 1
+    let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .up, options: [:])
   }
 }
 
