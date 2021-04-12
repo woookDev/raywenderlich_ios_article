@@ -34,13 +34,35 @@ import AVFoundation
 import UIKit
 import Vision
 
+var fingerTips: [CGPoint] = []
+
 extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
   func captureOutput(_ output: AVCaptureOutput,
                      didOutput sampleBuffer: CMSampleBuffer,
                      from connection: AVCaptureConnection
   ) {
     // 1
-    let handler = VNImageRequestHandler(cmSampleBuffer: sampleBuffer, orientation: .up, options: [:])
+    let handler = VNImageRequestHandler(
+      cmSampleBuffer: sampleBuffer,
+      orientation: .up,
+      options: [:]
+    )
+    
+    do {
+      // 2
+      try handler.perform([handPoseRequest])
+      
+      // 3
+      guard let results = handPoseRequest.results?.prefix(2),
+            !results.isEmpty else {
+        return
+      }
+      
+      print(results)
+    } catch {
+      // 4
+      cameraFeedSession?.stopRunning()
+    }
   }
 }
 
