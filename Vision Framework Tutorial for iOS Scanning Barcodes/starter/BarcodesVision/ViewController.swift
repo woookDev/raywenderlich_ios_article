@@ -57,13 +57,38 @@ class ViewController: UIViewController {
 extension ViewController {
   // MARK: - Camera
   private func checkPermissions() {
-    // TODO: Checking permissions
+    switch AVCaptureDevice.authorizationStatus(for: .video) {
+      // 1
+    case .notDetermined:
+      AVCaptureDevice.requestAccess(for: .video) { [self] granted in
+        if !granted {
+          showPermissionsAlert()
+        }
+      }
+      
+      // 2
+    case .denied, .restricted:
+      showPermissionsAlert()
+      
+      // 3
+    default:
+      return
+    }
   }
 
   private func setupCameraLiveView() {
     // TODO: Setup captureSession
+    
+    captureSession.sessionPreset = .hd1280x720
 
     // TODO: Add input
+    
+    // 1
+    let videoDevice = AVCaptureDevice.default(
+      .builtInWideAngleCamera,
+      for: .video,
+      position: .back
+    )
 
     // TODO: Add output
 
