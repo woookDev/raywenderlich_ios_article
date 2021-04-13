@@ -50,6 +50,7 @@ class ViewController: UIViewController {
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     // TODO: Stop Session
+    captureSession.stopRunning()
   }
 }
 
@@ -114,6 +115,8 @@ extension ViewController {
     configurePreviewLayer()
 
     // TODO: Run session
+    
+    captureSession.startRunning()
   }
 
   // MARK: - Vision
