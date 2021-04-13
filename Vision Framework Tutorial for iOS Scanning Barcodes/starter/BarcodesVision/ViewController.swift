@@ -89,6 +89,21 @@ extension ViewController {
       for: .video,
       position: .back
     )
+    
+    // 2
+    guard let device = videoDevice,
+          let videoDeviceInput = try? AVCaptureDeviceInput(device: device),
+          captureSession.canAddInput(videoDeviceInput) else {
+      // 3
+      showAlert(
+        withTitle: "Cannot Find Camera",
+        message: "There seems to be a problem with the camera on your device"
+      )
+      return
+    }
+    
+    // 4
+    captureSession.addInput(videoDeviceInput)
 
     // TODO: Add output
 
