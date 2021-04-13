@@ -32,10 +32,11 @@
 
 import SwiftUI
 import CoreLocation
+import AppClip
 
 @main
 struct SwiftyLemonadeClipApp: App {
-  @StateObject private var model = SwiftyLemonadeClipModel()
+  @State private var model = SwiftyLemonadeClipModel()
   
   var body: some Scene {
     WindowGroup {
@@ -80,6 +81,33 @@ struct SwiftyLemonadeClipApp: App {
       print("Welcome to \(stand.title)! :]")
     } else {
       model.locationFound = false
+    }
+    
+    // 1
+    guard let payload = userActivity.appClipActivationPayload else {
+      return
+    }
+    
+    // 2
+    let region = CLCircularRegion(
+      center: location,
+      radius: 500,
+      identifier: "stand_location"
+    )
+    
+    // 3
+    payload.confirmAcquired(in: region) { inRegion, error in
+      
+      // 4
+      guard error == nil else {
+        print(String(describing: error?.localizedDescription))
+        return
+      }
+      
+      // 5
+      DispatchQueue.main.async {
+        model.paymentAllowed = inRegion
+      }
     }
   }
 }
