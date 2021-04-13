@@ -106,6 +106,10 @@ extension ViewController {
     captureSession.addInput(videoDeviceInput)
 
     // TODO: Add output
+    
+    let captureOutput = AVCaptureVideoDataOutput()
+    // TODO: Set video sample rate
+    captureSession.addOutput(captureOutput)
 
     configurePreviewLayer()
 
