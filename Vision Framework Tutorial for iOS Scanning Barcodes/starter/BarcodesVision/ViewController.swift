@@ -40,6 +40,14 @@ class ViewController: UIViewController {
   var captureSession = AVCaptureSession()
 
   // TODO: Make VNDetectBarcodesRequest variable
+  
+  lazy var detectBarcodeRequest = VNDetectBarcodesRequest { request, error in
+    guard error == nil else {
+      self.showAlert(withTitle: "Barcode error", message: error?.localizedDescription ?? "error")
+      return
+    }
+    self.processClassification(request)
+  }
 
   // MARK: - Override Functions
   override func viewDidLoad() {
@@ -111,6 +119,8 @@ extension ViewController {
     let captureOutput = AVCaptureVideoDataOutput()
     // TODO: Set video sample rate
     captureSession.addOutput(captureOutput)
+    captureOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32BGRA)]
+    captureOutput.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: DispatchQoS.QoSClass.default))
 
     configurePreviewLayer()
 
@@ -121,7 +131,25 @@ extension ViewController {
 
   // MARK: - Vision
   func processClassification(_ request: VNRequest) {
-    // TODO: Main logic
+    // 1
+    guard let barcodes = request.results else { return }
+    DispatchQueue.main.async { [self] in
+      if captureSession.isRunning {
+        view.layer.sublayers?.removeSubrange(1...)
+        
+        // 2
+        for barcode in barcodes {
+          guard
+            let potentialQRCode = barcode as? VNBarcodeObservation,
+            potentialQRCode.symbology == .QR,
+            potentialQRCode.confidence > 0.9 else {
+            return
+          }
+          // 3
+          showAlert(withTitle: potentialQRCode.symbology.rawValue + "\(potentialQRCode.confidence)", message: potentialQRCode.payloadStringValue ?? "")
+        }
+      }
+    }
   }
 
   // MARK: - Handler
@@ -135,6 +163,23 @@ extension ViewController {
 extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
   func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
     // TODO: Live Vision
+    // 1
+    guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
+      return
+    }
+    
+    // 2
+    let imageRequestHandler = VNImageRequestHandler(
+      cvPixelBuffer: pixelBuffer,
+      orientation: .right
+    )
+    
+    // 3
+    do {
+      try imageRequestHandler.perform([detectBarcodeRequest])
+    } catch {
+      print(error)
+    }
   }
 }
 
