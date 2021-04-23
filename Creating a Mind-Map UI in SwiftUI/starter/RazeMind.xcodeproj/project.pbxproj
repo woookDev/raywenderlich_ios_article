@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		886965B42632FA11004E4E48 /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886965B32632FA11004E4E48 /* NodeView.swift */; };
 		AD7C16A423D46E4D00A3FEA3 /* Mesh+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C16A323D46E4D00A3FEA3 /* Mesh+Demo.swift */; };
 		AD7C16AA23D7151900A3FEA3 /* BoringListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7C16A923D7151900A3FEA3 /* BoringListView.swift */; };
 		ADC9090F23C3D31300394ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC9090E23C3D31300394ADF /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		886965B32632FA11004E4E48 /* NodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
 		AD7C16A323D46E4D00A3FEA3 /* Mesh+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mesh+Demo.swift"; sourceTree = "<group>"; };
 		AD7C16A923D7151900A3FEA3 /* BoringListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoringListView.swift; sourceTree = "<group>"; };
 		ADC9090B23C3D31300394ADF /* RazeMind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RazeMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				AD7C16A923D7151900A3FEA3 /* BoringListView.swift */,
+				886965B32632FA11004E4E48 /* NodeView.swift */,
 			);
 			path = "View Stack";
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				ADC9093F23C5265D00394ADF /* Node.swift in Sources */,
 				AD7C16AA23D7151900A3FEA3 /* BoringListView.swift in Sources */,
 				AD7C16A423D46E4D00A3FEA3 /* Mesh+Demo.swift in Sources */,
+				886965B42632FA11004E4E48 /* NodeView.swift in Sources */,
 				ADC9090F23C3D31300394ADF /* AppDelegate.swift in Sources */,
 				ADC9091123C3D31300394ADF /* SceneDelegate.swift in Sources */,
 			);
