@@ -1,15 +1,15 @@
-/// Copyright (c) 2021 Razeware LLC
-/// 
+/// Copyright (c) 2020 Razeware LLC
+///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-/// 
+///
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-/// 
+///
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,10 +17,6 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
-/// 
-/// This project and source code may use libraries or frameworks that are
-/// released under various Open-Source licenses. Use of those libraries and
-/// frameworks are governed by their own individual licenses.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -30,51 +26,38 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import SwiftUI
+import CoreGraphics
 
-struct Loadable<T, Content: View>: View {
-  let content: (T) -> Content
-  let hideContentWhenLoading: Bool
-  let loadingState: Loading<T>
-
-  public init(loadingState: Loading<T>, @ViewBuilder content: @escaping (T) -> Content) {
-    self.content = content
-    self.hideContentWhenLoading = false
-    self.loadingState = loadingState
-  }
-
-  public init(loadingState: Loading<T>, hideContentWhenLoading: Bool, @ViewBuilder content: @escaping (T) -> Content) {
-    self.content = content
-    self.hideContentWhenLoading = hideContentWhenLoading
-    self.loadingState = loadingState
-  }
-
-  var body: some View {
-    switch loadingState {
-    case .loaded(let type), .updating(let type):
-      return AnyView(content(type))
-    case .loading(let type):
-      return AnyView(
-        ZStack {
-          
-          
-          if !hideContentWhenLoading {
-            content(type)
-          }
-          ActivityIndicator(isAnimating: .constant(true), style: .large)
-            .opacity(0.9)
-        }
-      )
-    case .errored:
-      return AnyView(Text("Error loading view"))
-    }
+extension CGPoint {
+  func translatedBy(x: CGFloat, y: CGFloat) -> CGPoint {
+    return CGPoint(x: self.x + x, y: self.y + y)
   }
 }
 
-struct Loadable_Previews: PreviewProvider {
-  static var previews: some View {
-    Loadable<String, Text>(loadingState: .loading("Loading...")) { string in
-      Text(string)
-    }
+extension CGPoint {
+  func alignCenterInParent(_ parent: CGSize) -> CGPoint {
+    let x = parent.width/2 + self.x
+    let y = parent.height/2 + self.y
+    return CGPoint(x: x, y: y)
+  }
+  
+  func scaledFrom(_ factor: CGFloat) -> CGPoint {
+    return CGPoint(
+      x: self.x * factor,
+      y: self.y * factor)
+  }
+}
+
+extension CGSize {
+  func scaledDownTo(_ factor: CGFloat) -> CGSize {
+    return CGSize(width: width/factor, height: height/factor)
+  }
+  
+  var length: CGFloat {
+    return sqrt(pow(width, 2) + pow(height, 2))
+  }
+  
+  var inverted: CGSize {
+    return CGSize(width: -width, height: -height)
   }
 }

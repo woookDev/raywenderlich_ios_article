@@ -1,4 +1,4 @@
-/// Copyright (c) 2021 Razeware LLC
+/// Copyright (c) 2020 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -18,10 +18,6 @@
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
 /// 
-/// This project and source code may use libraries or frameworks that are
-/// released under various Open-Source licenses. Use of those libraries and
-/// frameworks are governed by their own individual licenses.
-///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -32,49 +28,32 @@
 
 import SwiftUI
 
-struct Loadable<T, Content: View>: View {
-  let content: (T) -> Content
-  let hideContentWhenLoading: Bool
-  let loadingState: Loading<T>
-
-  public init(loadingState: Loading<T>, @ViewBuilder content: @escaping (T) -> Content) {
-    self.content = content
-    self.hideContentWhenLoading = false
-    self.loadingState = loadingState
+struct BoringListView: View {
+  @ObservedObject var mesh: Mesh
+  @ObservedObject var selection: SelectionHandler
+  
+  func indent(_ node: Node) -> CGFloat {
+    let base = 20.0
+    return CGFloat(mesh.distanceFromRoot(node) ?? 0) * CGFloat(base)
   }
-
-  public init(loadingState: Loading<T>, hideContentWhenLoading: Bool, @ViewBuilder content: @escaping (T) -> Content) {
-    self.content = content
-    self.hideContentWhenLoading = hideContentWhenLoading
-    self.loadingState = loadingState
-  }
-
+  
   var body: some View {
-    switch loadingState {
-    case .loaded(let type), .updating(let type):
-      return AnyView(content(type))
-    case .loading(let type):
-      return AnyView(
-        ZStack {
-          
-          
-          if !hideContentWhenLoading {
-            content(type)
-          }
-          ActivityIndicator(isAnimating: .constant(true), style: .large)
-            .opacity(0.9)
-        }
-      )
-    case .errored:
-      return AnyView(Text("Error loading view"))
+    List(mesh.nodes, id: \.id) { node in
+      Text(node.text)
+        .padding(EdgeInsets(
+          top: 0,
+          leading: self.indent(node),
+          bottom: 0,
+          trailing: 0))
     }
   }
 }
 
-struct Loadable_Previews: PreviewProvider {
+struct BoringListView_Previews: PreviewProvider {
   static var previews: some View {
-    Loadable<String, Text>(loadingState: .loading("Loading...")) { string in
-      Text(string)
-    }
+    let mesh = Mesh.sampleMesh()
+    let selection =  SelectionHandler()
+    
+    return BoringListView(mesh: mesh, selection: selection)
   }
 }
