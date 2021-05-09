@@ -38,7 +38,7 @@ struct ThingStore {
 
 struct ContentView: View {
   @State private var showAddThing = false
-  private var myThings = ThingStore()
+  @State private var myThings = ThingStore()
 
   var body: some View {
     NavigationView {
@@ -66,6 +66,7 @@ struct ContentView: View {
         }
       }
     }
+    .navigationViewStyle(StackNavigationViewStyle())
   }
 }
 
