@@ -21,6 +21,7 @@
 		E120B56022A25FED001F9321 /* AllGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = E120B55F22A25FED001F9321 /* AllGames.swift */; };
 		E1DA82BF22AD9D1400B7FA97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1DA82BE22AD9D1400B7FA97 /* LaunchScreen.storyboard */; };
 		E775485926748D8F00B255F9 /* SlideInPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E775485826748D8F00B255F9 /* SlideInPresentationManager.swift */; };
+		E775485C2674AC4000B255F9 /* SlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E775485B2674AC4000B255F9 /* SlideInPresentationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		E120B55F22A25FED001F9321 /* AllGames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGames.swift; sourceTree = "<group>"; };
 		E1DA82BE22AD9D1400B7FA97 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E775485826748D8F00B255F9 /* SlideInPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationManager.swift; sourceTree = "<group>"; };
+		E775485B2674AC4000B255F9 /* SlideInPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				E775485826748D8F00B255F9 /* SlideInPresentationManager.swift */,
+				E775485B2674AC4000B255F9 /* SlideInPresentationController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				0EDB647C1D3248B30000FA79 /* Games.swift in Sources */,
 				0E15D2281D2ADA7E00A2E90B /* AppDelegate.swift in Sources */,
 				0EDB99A81D32A1860005CA3E /* MedalCountViewController.swift in Sources */,
+				E775485C2674AC4000B255F9 /* SlideInPresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
