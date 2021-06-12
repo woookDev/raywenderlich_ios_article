@@ -63,6 +63,12 @@ class SlideInPresentationController: UIPresentationController {
       dimmingView.alpha = 1.0
       return
     }
+    
+    coordinator.animate { _ in
+      self.dimmingView.alpha = 1.0
+    } completion: { _ in
+      
+    }
   }
 }
 
