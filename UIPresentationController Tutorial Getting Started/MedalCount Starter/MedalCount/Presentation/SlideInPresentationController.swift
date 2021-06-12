@@ -42,6 +42,27 @@ class SlideInPresentationController: UIPresentationController {
     
     // 3
     super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
+    setupDimmingView()
+  }
+  
+  override func presentationTransitionWillBegin() {
+    super.presentationTransitionWillBegin()
+    
+    guard let dimmingView = dimmingView else {
+      return
+    }
+    // 1
+    containerView?.insertSubview(dimmingView, at: 0)
+    
+    // 2
+    NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:|dimmingView|", options: [], metrics: nil, views: ["dimmingView": dimmingView]))
+    NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|dimmingView|", options: [], metrics: nil, views: ["dimmingView": dimmingView]))
+    
+    // 3
+    guard let coordinator = presentedViewController.transitionCoordinator else {
+      dimmingView.alpha = 1.0
+      return
+    }
   }
 }
 
@@ -52,5 +73,12 @@ private extension SlideInPresentationController {
     dimmingView.translatesAutoresizingMaskIntoConstraints = false
     dimmingView.backgroundColor = UIColor(white: 0.0, alpha: 0.5)
     dimmingView.alpha = 0.0
+    
+    let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
+    dimmingView.addGestureRecognizer(recognizer)
+  }
+  
+  @objc func handleTap(recognizer: UITapGestureRecognizer) {
+    presentingViewController.dismiss(animated: true)
   }
 }
