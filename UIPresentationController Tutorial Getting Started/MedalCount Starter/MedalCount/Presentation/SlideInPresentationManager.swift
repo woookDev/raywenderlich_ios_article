@@ -28,8 +28,15 @@
 
 import UIKit
 
+enum PresentationDirection {
+  case left
+  case top
+  case right
+  case bottom
+}
+
 class SlideInPresentationManager: NSObject {
-  
+  var direction: PresentationDirection = .left
   
 }
 

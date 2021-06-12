@@ -42,6 +42,7 @@ final class MainViewController: UIViewController {
       configurePresentedGames()
     }
   }
+  lazy var slideInTransitioningDelegate = SlideInPresentationManager()
 
   // MARK: - View Life Cycle
   override func viewDidLoad() {
@@ -55,12 +56,22 @@ final class MainViewController: UIViewController {
     if let controller = segue.destination as? GamesTableViewController {
       if segue.identifier == "SummerSegue" {
         controller.gamesArray = dataStore.allGames.summer
+        // 1
+        slideInTransitioningDelegate.direction = .left
       } else if segue.identifier == "WinterSegue" {
         controller.gamesArray = dataStore.allGames.winter
+        // 2
+        slideInTransitioningDelegate.direction = .right
       }
       controller.delegate = self
+      controller.transitioningDelegate = slideInTransitioningDelegate
+      controller.modalPresentationStyle = .custom
     } else if let controller = segue.destination as? MedalCountViewController {
       controller.medalWinners = presentedGames?.medalWinners
+      
+      slideInTransitioningDelegate.direction = .bottom
+      controller.transitioningDelegate = slideInTransitioningDelegate
+      controller.modalPresentationStyle = .custom
     }
   }
 }
