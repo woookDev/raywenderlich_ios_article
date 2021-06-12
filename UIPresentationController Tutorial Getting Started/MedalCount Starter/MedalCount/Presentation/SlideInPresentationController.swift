@@ -70,6 +70,25 @@ class SlideInPresentationController: UIPresentationController {
       
     }
   }
+  
+  override func dismissalTransitionWillBegin() {
+    super.dismissalTransitionWillBegin()
+    guard let coordinator = presentedViewController.transitionCoordinator else {
+      dimmingView.alpha = 0.0
+      return
+    }
+    
+    coordinator.animate(alongsideTransition: { _ in
+      self.dimmingView.alpha = 0.0
+    }, completion: { _ in
+      
+    })
+  }
+  
+  override func containerViewWillLayoutSubviews() {
+    super.containerViewWillLayoutSubviews()
+    presentedView?.frame = frameOfPresentedViewInContainerView
+  }
 }
 
 // MARK: - Private
