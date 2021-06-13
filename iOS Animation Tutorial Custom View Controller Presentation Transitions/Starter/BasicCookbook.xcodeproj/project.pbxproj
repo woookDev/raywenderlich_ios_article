@@ -15,6 +15,7 @@
 		D2A5F2091F4A9144005CD714 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A5F2071F4A9144005CD714 /* Main.storyboard */; };
 		D2A5F20B1F4A9144005CD714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A5F20A1F4A9144005CD714 /* Assets.xcassets */; };
 		D2A5F2211F4A96D0005CD714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5F2201F4A96D0005CD714 /* AppDelegate.swift */; };
+		E77548632675E57400B255F9 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77548622675E57400B255F9 /* PopAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		D2A5F20A1F4A9144005CD714 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2A5F20F1F4A9144005CD714 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2A5F2201F4A96D0005CD714 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E77548622675E57400B255F9 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				5394F02321864DF4006E754C /* LaunchScreen.storyboard */,
 				D2A5F20A1F4A9144005CD714 /* Assets.xcassets */,
 				D2A5F20F1F4A9144005CD714 /* Info.plist */,
+				E77548622675E57400B255F9 /* PopAnimator.swift */,
 			);
 			path = BasicCookbook;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				D2A5F2211F4A96D0005CD714 /* AppDelegate.swift in Sources */,
 				499ED380226A6B260081CD1C /* HomeViewController.swift in Sources */,
 				499ED384226A79080081CD1C /* Recipe.swift in Sources */,
+				E77548632675E57400B255F9 /* PopAnimator.swift in Sources */,
 				499ED386226A7C220081CD1C /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

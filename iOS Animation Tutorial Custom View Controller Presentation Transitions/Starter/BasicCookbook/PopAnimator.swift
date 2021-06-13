@@ -1,4 +1,4 @@
-/// Copyright (c) 2019 Razeware LLC
+/// Copyright (c) 2021 Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -28,56 +28,15 @@
 
 import UIKit
 
-// MARK: - UIViewController
-
-class HomeViewController: UITableViewController {
-  override var prefersStatusBarHidden: Bool {
-    return true
+class PopAnimator:
+  NSObject,
+  UIViewControllerAnimatedTransitioning
+{
+  func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    return 0
   }
   
-  let transition = PopAnimator()
-}
-
-// MARK: - UITableViewDataSource & UITableViewDelegate
-
-extension HomeViewController {
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return Recipe.all().count
-  }
-  
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(
-      withIdentifier: "RecipeTableViewCell",
-      for: indexPath
-    ) as! RecipeTableViewCell
+  func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
     
-    cell.recipe = Recipe.all()[indexPath.row]
-    
-    return cell
-  }
-  
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier: "showDetails", sender: Recipe.all()[indexPath.row])
-  }
-}
-
-// MARK: - Prepare for Segue
-
-extension HomeViewController {
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if
-      let detailsViewController = segue.destination as? DetailsViewController,
-      let recipe = sender as? Recipe {
-        detailsViewController.recipe = recipe
-      detailsViewController.transitioningDelegate = self
-    }
-  }
-}
-
-// MARK: - UIViewControllerTransitioningDelegate
-
-extension HomeViewController: UIViewControllerTransitioningDelegate {
-  func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    return transition
   }
 }
