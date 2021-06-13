@@ -57,6 +57,8 @@ final class MainViewController: UIViewController {
       if segue.identifier == "SummerSegue" {
         controller.gamesArray = dataStore.allGames.summer
         // 1
+        slideInTransitioningDelegate.disableCompactHeight = false
+        
         slideInTransitioningDelegate.direction = .left
       } else if segue.identifier == "WinterSegue" {
         controller.gamesArray = dataStore.allGames.winter
@@ -68,7 +70,7 @@ final class MainViewController: UIViewController {
       controller.modalPresentationStyle = .custom
     } else if let controller = segue.destination as? MedalCountViewController {
       controller.medalWinners = presentedGames?.medalWinners
-      
+      slideInTransitioningDelegate.disableCompactHeight = true
       slideInTransitioningDelegate.direction = .bottom
       controller.transitioningDelegate = slideInTransitioningDelegate
       controller.modalPresentationStyle = .custom
