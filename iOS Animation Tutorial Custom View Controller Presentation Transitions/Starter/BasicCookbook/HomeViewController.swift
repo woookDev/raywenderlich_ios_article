@@ -69,6 +69,7 @@ extension HomeViewController {
       let detailsViewController = segue.destination as? DetailsViewController,
       let recipe = sender as? Recipe {
         detailsViewController.recipe = recipe
+      detailsViewController.modalPresentationStyle = .overCurrentContext
       detailsViewController.transitioningDelegate = self
     }
   }
@@ -78,10 +79,24 @@ extension HomeViewController {
 
 extension HomeViewController: UIViewControllerTransitioningDelegate {
   func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    guard let selectedIndexPathCell = tableView.indexPathForSelectedRow,
+          let selectedCell = tableView.cellForRow(at: selectedIndexPathCell) as? RecipeTableViewCell,
+          let selectedCellSuperview = selectedCell.superview else {
+      return nil
+    }
+    
+    transition.originFrame = selectedCellSuperview.convert(selectedCell.frame, to: nil)
+    
+    transition.originFrame = CGRect(x: transition.originFrame.origin.x + 20, y: transition.originFrame.origin.y + 20, width: transition.originFrame.size.width - 40, height: transition.originFrame.size.height - 40)
+    
+    transition.presenting = true
+    // selectedCell.shadowView.isHidden = true
+    
     return transition
   }
   
   func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    return nil
+    transition.presenting = false
+    return transition
   }
 }
