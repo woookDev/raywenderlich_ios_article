@@ -31,8 +31,19 @@
 /// THE SOFTWARE.
 
 import UIKit
+import AVKit
+import MobileCoreServices
 
 class PlayVideoViewController: UIViewController {
   @IBAction func playVideo(_ sender: AnyObject) {
   }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension PlayVideoViewController: UIImagePickerControllerDelegate {
+}
+
+// MARK: - UINavigationControllerDelegate
+extension PlayVideoViewController: UINavigationControllerDelegate {
+  
 }
