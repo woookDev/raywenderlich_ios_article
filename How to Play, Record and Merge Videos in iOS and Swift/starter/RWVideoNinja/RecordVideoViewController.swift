@@ -31,8 +31,22 @@
 /// THE SOFTWARE.
 
 import UIKit
+import MobileCoreServices
 
 class RecordVideoViewController: UIViewController {
   @IBAction func record(_ sender: AnyObject) {
+    VideoHelper.startMediaBrowser(
+      delegate: self, sourceType: .camera
+    )
   }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension RecordVideoViewController: UIImagePickerControllerDelegate {
+  
+}
+
+// MARK: - UINavigationControllerDelegate
+extension RecordVideoViewController: UINavigationControllerDelegate {
+  
 }
