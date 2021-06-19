@@ -38,7 +38,7 @@ class ReportsDataSource: ObservableObject {
   
   var reportRange: ReportRange
 
-  @Published private(set) var currentEntries: [ExpenseModel] = []
+  @Published private(set) var currentEntries: [ExpenseModelProtocol] = []
 
   init(viewContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext,
        reportRange: ReportRange) {
@@ -51,14 +51,14 @@ class ReportsDataSource: ObservableObject {
     currentEntries = getEntries()
   }
 
-  private func getEntries() -> [ExpenseModel] {
+  private func getEntries() -> [ExpenseModelProtocol] {
     let fetchRequest: NSFetchRequest<ExpenseModel> = ExpenseModel.fetchRequest()
     fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \ExpenseModel.date, ascending: false)]
     let (startDate, endDate) = reportRange.timeRange()
     fetchRequest.predicate = NSPredicate(
       format: "%@ <= date AND date <= %@",
-      startOfDate as CVarArg,
-      endOfDate as CVarArg)
+      startDate as CVarArg,
+      endDate as CVarArg)
     do {
       let results = try viewContext.fetch(fetchRequest)
       return results

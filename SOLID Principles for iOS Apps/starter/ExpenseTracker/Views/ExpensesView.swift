@@ -30,22 +30,44 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import SwiftUI
+import Combine
 
-enum ReportRange: String, CaseIterable {
-  case daily = "Today"
-  case monthly = "This Month"
-  case weekly = "This Week"
-  
-  func timeRange() -> (Date, Date) {
-    let now = Date()
-    switch self {
-    case .daily:
-      return (now.startOfDay, now.endOfDay)
-    case .weekly:
-      return (now.startOfWeek, now.endOfWeek)
-    case .monthly:
-      return (now.startOfMonth, now.endOfMonth)
+struct ExpensesView: View {
+  @State private var isAddPresented = false
+  @ObservedObject var dataSource: ReportsDataSource
+
+  var body: some View {
+    VStack {
+      List {
+        ForEach(dataSource.currentEntries, id: \.id) { item in
+          ExpenseItemView(expenseItem: item)
+        }
+      }
+      TotalView(totalExpense: dataSource.currentEntries.reduce(0) { $0 + $1.price })
     }
+    .toolbar {
+      Button(action: {
+        isAddPresented.toggle()
+      }, label: {
+        Image(systemName: "plus")
+      })
+    }
+    .fullScreenCover(
+      isPresented: $isAddPresented) {
+      AddExpenseView { title, price, time, comment in
+        dataSource.saveEntry(title: title, price: price, date: time, comment: comment)
+      }
+    }
+    .onAppear {
+      dataSource.prepare()
+    }
+  }
+}
+
+struct DailyExpensesView_Previews: PreviewProvider {
+  static var previews: some View {
+    let reportsDataSource = ReportsDataSource(viewContext: PersistenceController.shared.container.viewContext, reportRange: .daily)
+    ExpensesView(dataSource: reportsDataSource)
   }
 }
