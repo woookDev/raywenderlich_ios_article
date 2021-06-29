@@ -1,4 +1,9 @@
-/// Copyright (c) 2021 Razeware LLC
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FILEHEADER</key>
+	<string>/ Copyright (c) ___YEAR___ Razeware LLC
 /// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
@@ -28,61 +33,6 @@
 /// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-/// THE SOFTWARE.
-
-import SwiftUI
-
-struct ExpenseItemView: View {
-  let expenseItem: ExpenseModelProtocol
-
-  static let dateFormatter: DateFormatter = {
-    var dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .medium
-    dateFormatter.timeStyle = .none
-    return dateFormatter
-  }()
-
-  static let timeFormatter: DateFormatter = {
-    var dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .none
-    dateFormatter.timeStyle = .medium
-    return dateFormatter
-  }()
-
-  var body: some View {
-    VStack(alignment: .leading) {
-      HStack {
-        Text(expenseItem.title ?? "")
-        Spacer()
-        Text(String(format: "%.2f", expenseItem.price))
-      }
-      Text(expenseItem.comment ?? "")
-        .font(.caption)
-      HStack {
-        Text("\(expenseItem.date ?? Date(), formatter: Self.dateFormatter)")
-        Spacer()
-        Text("\(expenseItem.date ?? Date(), formatter: Self.timeFormatter)")
-      }
-    }
-  }
-}
-
-struct ExpenseItemView_Previews: PreviewProvider {
-  
-  struct PreviewExpenseModel: ExpenseModelProtocol {
-    var title: String?
-    
-    var price: Double = 123.45
-    
-    var comment: String?
-    
-    var date: Date?
-    
-    var id: UUID?
-  }
-  
-  static var previews: some View {
-    
-    ExpenseItemView(expenseItem: PersistenceController.previewItem)
-  }
-}
+/// THE SOFTWARE.</string>
+</dict>
+</plist>
